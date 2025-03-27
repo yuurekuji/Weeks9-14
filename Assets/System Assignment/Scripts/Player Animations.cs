@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerAnimations : MonoBehaviour
+{
+    Animator animator;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void attack()
+    {
+        animator.Play("Attack1"); // this plays the animation for the attack.
+    }
+
+    public void Dodge()
+    {
+        animator.Play("Perfect Dodge"); // this plays the animation for the perfect dodge / parry.
+    }
+}
