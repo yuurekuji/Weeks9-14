@@ -22,4 +22,9 @@ public class Attack : MonoBehaviour
     {
         animator.Play("HeroKnight_Attack1");
     }
+
+    public void dodge()
+    {
+        animator.Play("HeroKnight_Block");
+    }
 }
