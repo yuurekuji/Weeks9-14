@@ -20,11 +20,11 @@ public class PlayerAnimations : MonoBehaviour
 
     public void attack()
     {
-        animator.Play("Attack1"); // this plays the animation for the attack.
+        animator.SetTrigger("Attack"); // this plays the animation for the attack.
     }
 
     public void Dodge()
     {
-        animator.Play("Perfect Dodge"); // this plays the animation for the perfect dodge / parry.
+        animator.SetTrigger("Dodge"); // this plays the animation for the perfect dodge / parry.
     }
 }
