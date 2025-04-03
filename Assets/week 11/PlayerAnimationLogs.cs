@@ -7,6 +7,10 @@ public class PlayerAnimationLogs : MonoBehaviour
 {
     public Animator playeranimations;
     public Boolean run = false;
+
+    public AudioSource Footstep1;
+    public AudioSource Footstep2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,5 +44,14 @@ public class PlayerAnimationLogs : MonoBehaviour
 
     }
     
+    public void playfootstep1()
+    {
+        Footstep1.Play();
+    }
+
+    public void playfootstep2()
+    {
+        Footstep2.Play();
+    }
 
 }
