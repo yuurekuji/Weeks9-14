@@ -41,7 +41,7 @@ public class PlayerAnimations : MonoBehaviour
     {
 
         
-        while (oncooldown == true)
+        if (oncooldown == true)
         {
             time += Time.deltaTime;
             Attack.interactable = false;
