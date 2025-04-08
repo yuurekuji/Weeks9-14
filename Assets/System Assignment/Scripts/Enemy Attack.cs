@@ -16,15 +16,17 @@ public class EnemyAttack : MonoBehaviour
 
     public bool isattacking = false;
 
-    
+    public GameObject audi;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>(); // calls the component of the animator attached.
         EnemyHP = 1500;
         EnemyDefensestat = 30;
         EnemyAttackstat = 30;
+
+        animator = GetComponent<Animator>(); // calls the component of the animator attached.
+       
     }
 
     // Update is called once per frame
@@ -49,6 +51,7 @@ public class EnemyAttack : MonoBehaviour
         {
             EnemyDefensestat = 10;
             EnemyAttackstat = 60;
+            audi.SetActive(true);
         }
 
 
@@ -94,4 +97,6 @@ public class EnemyAttack : MonoBehaviour
     {
         isattacking = false;
     }
+
+
 }
