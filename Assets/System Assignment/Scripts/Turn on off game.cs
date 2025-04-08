@@ -41,8 +41,14 @@ public class Turnonoffgame : MonoBehaviour
     public void FangBlade()
     {
         Fang = true;
-        canvas.SetActive(false);
-        Game.SetActive(true);
+        canvas.SetActive(false); // sets current canvas to false and then 
+        Game.SetActive(true); // turns on canvas for actual game. 
+    }
+
+    public void NoNeed()
+    {
+        canvas.SetActive(false); // sets current canvas to false and then 
+        Game.SetActive(true); // turns on canvas for actual game. 
     }
 
 }

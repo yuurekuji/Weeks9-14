@@ -44,7 +44,12 @@ public class EnemyAttack : MonoBehaviour
             animator.SetBool("IsDead", true); // this boolean is here to make sure that no other animations will be playing when the enemy is death. Otherwise because the coroutine is still going on the enemy will attack while dead sometimes.
         }
 
-
+        // this is a enragemechanic where the bos gets harder to beat as you whittle him down.
+        if(EnemyHP <= 750)
+        {
+            EnemyDefensestat = 10;
+            EnemyAttackstat = 60;
+        }
 
 
 

@@ -12,6 +12,10 @@ public class Player : MonoBehaviour
     public float Hp;
     public Button Attack;
     public Button weave;
+
+    public GameObject Relics;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,15 @@ public class Player : MonoBehaviour
         defensestat = 30;
 
         animator = GetComponent<Animator>(); // calling the animator componenet so I can use it.
+        
+        if(Relics.GetComponent<Turnonoffgame>().Greatwolf == true) // if statments checking if the variable is true. If it is then that means it was chosen at the start of the game.
+        {
+            Wolfsword();
+        }
+        else if (Relics.GetComponent<Turnonoffgame>().Fang == true)
+        {
+            Fangblade();
+        }
     }
 
     private void Update()
@@ -40,5 +53,18 @@ public class Player : MonoBehaviour
 
          
         }
+    }
+
+    public void Wolfsword() // this chunk of code is just to organize the statchanges that occur when you click a relic at the start of the game.
+    {
+        attackstat += 10;
+        Hp += 200;
+        defensestat += 5;
+    }
+
+    public void Fangblade() 
+    {
+        attackstat += 30;
+        defensestat -= 5;
     }
 }
