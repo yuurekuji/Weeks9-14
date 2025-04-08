@@ -26,9 +26,14 @@ public class PlayerAnimations : MonoBehaviour
     // this is a boolean to track the cool down of the button so players don't instantly spam it. 
     // the floats are the actual timer itself, having a max time and a current time.
 
-    public bool oncooldown = false; 
-    public float time = 0f;
-    public float maxtime = 5f;
+    public bool Attackoncooldown = false; 
+  
+    public float Atime = 0f;
+    public float Amaxtime = 3f;
+
+    public bool Dodgeoncooldown = false;
+    public float Dtime = 0f;
+    public float Dmaxtime = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -40,22 +45,56 @@ public class PlayerAnimations : MonoBehaviour
     void Update()
     {
 
-        
-        if (oncooldown == true)
+        // this chunk of code is to make sure the player does not spam the attack button
+        // we have a boolean which is turned on when the button is clicked which starts a cooldown system.
+        // while this boolean is true a timer will perpetually tick until it reaches the max value.
+        // if the cooldown is true then the interactivity of the attack button will turn off until the cooldown is reached.
+        // the time variable is then reset.
+
+
+    /////////////////////////////
+    ////// for attack   /////////
+    /////////////////////////////
+    ///
+
+
+        if (Attackoncooldown == true)
         {
-            time += Time.deltaTime;
+            Atime += Time.deltaTime;
             Attack.interactable = false;
 
         }
 
-        if (time >= maxtime)
+        if (Atime >= Amaxtime)
         {
-            oncooldown = false;
+            Attackoncooldown = false;
             Attack.interactable = true;
-            time = 0f;
+            Atime = 0f;
 
 
         }
+
+        ////////////////////////////
+        ////     for dodge  ////////
+        ///////////////////////////
+        ///
+
+        if (Dodgeoncooldown == true)
+        {
+            Dtime += Time.deltaTime;
+            weave.interactable = false;
+
+        }
+
+        if (Dtime >= Dmaxtime)
+        {
+            Dodgeoncooldown = false;
+            weave.interactable = true;
+            Dtime = 0f;
+
+
+        }
+
     }
 
     public void attack()
@@ -66,13 +105,14 @@ public class PlayerAnimations : MonoBehaviour
 
         // this is the damage formula derived by enemy hp -= player attack*2 - enemy def.
 
-        oncooldown = true;
+        Attackoncooldown = true;
         
     }
 
     public void Dodge()
     {
         animator.SetTrigger("Dodge"); // this plays the animation for the perfect dodge / parry by activating the trigger.
+        Dodgeoncooldown = true;
     }
 
 

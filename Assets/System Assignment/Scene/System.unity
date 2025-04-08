@@ -462,7 +462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -470.5, y: -369}
+  m_AnchoredPosition: {x: -480, y: -430}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &455488461
@@ -896,7 +896,7 @@ Transform:
   m_GameObject: {fileID: 1767697637}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.83, y: -2.5, z: 0}
+  m_LocalPosition: {x: -6.88, y: -3.05, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -936,16 +936,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe44c70266ea41f44b6ac31fdff8b853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2572889982052556925}
+  enemy: {fileID: 0}
   playerattack: 0
   ivframes: 0
   Enemystats: {fileID: 1424383093838738685}
   Playerstats: {fileID: 1767697637}
   Attack: {fileID: 455488461}
   weave: {fileID: 2067867084}
-  oncooldown: 0
-  time: 0
-  maxtime: 5
+  Attackoncooldown: 0
+  Atime: 0
+  Amaxtime: 3
+  Dodgeoncooldown: 0
+  Dtime: 0
+  Dmaxtime: 1.5
 --- !u!114 &1767697642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -961,6 +964,8 @@ MonoBehaviour:
   attackstat: 40
   defensestat: 25
   Hp: 100
+  Attack: {fileID: 455488461}
+  weave: {fileID: 2067867084}
 --- !u!1 &1824816330
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,7 +1000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 355}
+  m_AnchoredPosition: {x: 0, y: 294}
   m_SizeDelta: {x: 928, y: 793}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1824816332
@@ -1208,7 +1213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -125, y: -369}
+  m_AnchoredPosition: {x: -127, y: -430}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2067867084
@@ -1451,7 +1456,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1718820312395149471}
   - component: {fileID: 2572889982052556924}
-  - component: {fileID: 2572889982052556925}
   - component: {fileID: 2572889982052556927}
   - component: {fileID: 2572889982052556926}
   m_Layer: 0
@@ -1470,7 +1474,7 @@ Transform:
   m_GameObject: {fileID: 1424383093838738685}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.98, y: -1.22, z: 0}
+  m_LocalPosition: {x: 5.98, y: -1.8, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1529,27 +1533,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2572889982052556925
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1424383093838738685}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 648169a0c4d2903448596f319df86489, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &2572889982052556926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1582,6 +1565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 0
   Maxtime: 6
+  Enemystats: {fileID: 1424383093838738685}
   OnAttackDeclare:
     m_PersistentCalls:
       m_Calls:

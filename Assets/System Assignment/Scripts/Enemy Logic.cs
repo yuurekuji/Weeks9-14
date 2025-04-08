@@ -11,7 +11,7 @@ public class EnemyLogic : MonoBehaviour
     public float times;
     public float Maxtime = 6; // max amount of time it will take after each attack to go off cooldown and attack again.
 
-
+    public GameObject Enemystats;
     public UnityEvent OnAttackDeclare;
 
     Coroutine animations;
@@ -28,7 +28,10 @@ public class EnemyLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(Enemystats.GetComponent<EnemyAttack>().EnemyHP <= 0) // this stops all coroutines when enemy is dead to make sure no extra animations are playing.
+        {
+            StopAllCoroutines(); //function to stop all coroutines, this is just to be safer as I can not use the reload scene function for this project yet. 
+        }
     }
 
     private IEnumerator ani()

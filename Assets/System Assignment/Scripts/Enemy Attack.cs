@@ -22,7 +22,7 @@ public class EnemyAttack : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>(); // calls the component of the animator attached.
-        EnemyHP = 3000;
+        EnemyHP = 1500;
         EnemyDefensestat = 30;
         EnemyAttackstat = 30;
     }
