@@ -8,11 +8,12 @@ public class AddlistenersScript : MonoBehaviour
 {
     UnityEvent MyEvent = new UnityEvent();
     UnityEvent MyEvent2 = new UnityEvent();
-    public float i = 0;
+
+    public float Charge = 0;
     void Start()
     {
         
-        MyEvent.AddListener(MyAction);
+        MyEvent.AddListener(UseMagic);
         MyEvent2.AddListener(MyAction2);
     }
 
@@ -23,16 +24,16 @@ public class AddlistenersScript : MonoBehaviour
         {
             Debug.Log("Charging");
 
-            MyEvent.RemoveListener(MyAction);
+            MyEvent.RemoveListener(UseMagic);
 
         }
 
       
-        if (Input.GetKeyDown("k") && MyEvent2 != null)
+        if (Input.GetKey("s") && MyEvent2 != null)
         {
             //Begin the action
             MyEvent2.Invoke();
-            i += 1;
+      
         }
 
         if(Input.GetKeyDown("i") && MyEvent != null)
@@ -42,14 +43,16 @@ public class AddlistenersScript : MonoBehaviour
         }
     }
 
-    void MyAction()
+    void UseMagic()
     {
         
-        Debug.Log("Do Stuff");
+        Debug.Log("Charge:" + i);
+
+
     }
 
     void MyAction2()
     {
-        Debug.Log("Life is good");
+        i += 1;
     }
 }

@@ -11,6 +11,8 @@ public class EnemyAttack : MonoBehaviour
     public float EnemyAttackstat;
     public float EnemyDefensestat;
 
+    public GameObject MagicCharge;
+
     public GameObject playeranimations;
     public GameObject player;
 
@@ -66,9 +68,22 @@ public class EnemyAttack : MonoBehaviour
         {
             player.GetComponent<Player>().Hp -= (EnemyAttackstat*2 - player.GetComponent<Player>().defensestat); // subtracts hp when it happens
         }
+
+        else if (isattacking == true && playeranimations.GetComponent<PlayerAnimations>().ivframes == true) 
+        {
+            // During the time you perfect block increase the charge of a special ability.
+            // when the charge is max it will stop increasing even if player dodges perfectly.
+            if (MagicCharge.GetComponent<AddlistenersScript>().Charge <= 50)
+            {
+                MagicCharge.GetComponent<AddlistenersScript>().Charge += 1;
+            }
+        }
         else
         {
+
             //else nothing happens and hp is fine. If you perfectly parry it the player will nullify damage taken. 
+
+           
         }
     }
 
