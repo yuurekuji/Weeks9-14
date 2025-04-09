@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyAttack : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class EnemyAttack : MonoBehaviour
 
     public GameObject playeranimations;
     public GameObject player;
+    public GameObject Buffedup;
+    public GameObject Bloody;
+
 
     public bool isattacking = false;
 
@@ -73,7 +77,7 @@ public class EnemyAttack : MonoBehaviour
         {
             // During the time you perfect block increase the charge of a special ability.
             // when the charge is max it will stop increasing even if player dodges perfectly.
-            if (MagicCharge.GetComponent<AddlistenersScript>().Charge <= 50)
+            if (MagicCharge.GetComponent<AddlistenersScript>().Charge <= 40)
             {
                 MagicCharge.GetComponent<AddlistenersScript>().Charge += 1;
             }
@@ -93,9 +97,23 @@ public class EnemyAttack : MonoBehaviour
 
     }
 
-    public void attack2()
-    {
 
+    //plays the animation for a power up when the player makes the hp below 50 percent or 750.
+    // this script will be added as a listenr in the addlistenerscript.
+    // it will be called in there.
+    public void Power()
+    {
+        Buffedup.SetActive(true);
+
+        Debug.Log("nice");
+
+    }
+    //plays the animation for a Smoke when the player makes the hp below 50 percent or 750.
+    // this script will be added as a listenr in the addlistenerscript.
+    // it will be called in there.
+    public void Splatter()
+    {
+        Bloody.SetActive(true);
     }
 
     /// <summary>
