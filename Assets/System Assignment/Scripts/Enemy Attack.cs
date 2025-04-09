@@ -105,7 +105,7 @@ public class EnemyAttack : MonoBehaviour
     {
         Buffedup.SetActive(true);
 
-        Debug.Log("nice");
+
 
     }
     //plays the animation for a Smoke when the player makes the hp below 50 percent or 750.
