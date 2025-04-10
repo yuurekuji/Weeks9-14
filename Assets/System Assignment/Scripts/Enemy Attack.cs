@@ -8,9 +8,9 @@ public class EnemyAttack : MonoBehaviour
 
     Animator animator;
 
-    public float EnemyHP;
-    public float EnemyAttackstat;
-    public float EnemyDefensestat;
+    public float EnemyHP = 1500;
+    public float EnemyDefensestat = 30;
+    public float EnemyAttackstat = 30;
 
     public GameObject MagicCharge;
 

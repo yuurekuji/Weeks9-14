@@ -7,9 +7,9 @@ public class Player : MonoBehaviour
 {
 
     Animator animator;
-    public float attackstat;
-    public float defensestat;
-    public float Hp;
+    public float attackstat = 40;
+    public float defensestat = 30;
+    public float Hp = 2000;
     public Button Attack;
     public Button weave;
 
